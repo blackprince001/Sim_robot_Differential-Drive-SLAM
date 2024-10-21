@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find ArmBot_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="ArmBot" args="limb1_2_base_link_position_controller limb2_2_limb1_position_controller limb3_2_limb2_position_controller limb4_2_limb3_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/ArmBot/joint_states"/>
+</node>
+
+</launch>

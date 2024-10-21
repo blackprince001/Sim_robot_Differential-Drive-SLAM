@@ -1,0 +1,23 @@
+ArmBot_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  limb1_2_base_link_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: limb1_2_base_link
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  limb2_2_limb1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: limb2_2_limb1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  limb3_2_limb2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: limb3_2_limb2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  limb4_2_limb3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: limb4_2_limb3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
